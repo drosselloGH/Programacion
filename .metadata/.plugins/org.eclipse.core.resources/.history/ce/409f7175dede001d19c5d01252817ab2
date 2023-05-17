@@ -1,0 +1,33 @@
+
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+
+public class Ejemplo12MenuBar extends JFrame {
+
+	public Ejemplo12MenuBar() {
+		super("Barra de menú");
+		setSize(400, 300);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		setLayout(new FlowLayout());
+		
+		JMenu menuArchivo = new JMenu("Archivo");
+		JMenu menuEditar = new JMenu("Editar");
+		JMenu menuHerramientas = new JMenu("Herramientas");
+		JMenu menuAyuda = new JMenu("Ayuda");
+		
+		
+
+		setVisible(true);
+
+	}
+
+	public static void main(String[] args) {
+
+		new Ejemplo12MenuBar();
+
+	}
+}

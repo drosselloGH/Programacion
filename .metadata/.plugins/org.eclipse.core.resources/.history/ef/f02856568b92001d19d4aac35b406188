@@ -1,0 +1,17 @@
+//Programa que lee una frase desde el teclado y nos alerta de si contiene alguna palabra
+//malsonante. Las palabras malsonantes las buscará en un array llamado palabrotas.
+
+package cadenas;
+
+import java.util.Scanner;
+
+public class Ejer07 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Escriba una frase con palabras malsonantes");
+
+	}
+
+}

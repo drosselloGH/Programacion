@@ -1,0 +1,19 @@
+//Crea un programa que muestre los siguientes precios (guardados en un array llamado precios)
+//ordenados de menor a mayor, usando el método de selección
+
+package hoja2;
+
+import java.util.Arrays;
+
+public class Ejer09 {
+
+	public static void main(String[] args) {
+		int precios[] = {43, 15, 58, 15, 44, 10, 62, 90, 80, 56};
+		
+		Arrays.sort(precios);
+		
+		System.out.println(precios);
+
+	}
+
+}

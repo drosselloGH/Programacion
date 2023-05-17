@@ -1,0 +1,13 @@
+//Programa que te pide cinco palabras y te dice cuál es la que va primero,
+//alfabéticamente.
+
+package cadenas;
+
+public class Ejer13 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,19 @@
+package ejemplo01;
+
+public class Persona {
+
+	// atributos de la clase
+	String nombre;
+	String apellidos;
+	int anyoNacimiento;
+	String dni;
+
+	// metodos de la clase
+	void mostrar() {
+		System.out.println("Nombre: " + nombre);
+		System.out.println("Apellidos:" + apellidos);
+		System.out.println("Año nacimiento: " + anyoNacimiento);
+		System.out.println("DNI: " + dni);
+	}
+
+}

@@ -1,0 +1,108 @@
+package ejemplos;
+
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
+
+public class Ejemplo10Actividad extends JFrame {
+
+	private JPanel contentPane;
+	private JTextArea textArea;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Ejemplo10Actividad frame = new Ejemplo10Actividad();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Ejemplo10Actividad() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+
+		JMenu mnArchivo = new JMenu("Archivo");
+		menuBar.add(mnArchivo);
+
+		JMenuItem mntmAbrir = new JMenuItem("Abrir");
+
+		mnArchivo.add(mntmAbrir);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		textArea = new JTextArea();
+		textArea.setPreferredSize(new Dimension(300, 300));
+		textArea.setBounds(426, 12, -409, 218);
+		contentPane.add(textArea);
+
+		mntmAbrir.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser elegirArchivo = new JFileChooser();
+
+				int eleccion = elegirArchivo.showSaveDialog(null);
+
+				if (eleccion == elegirArchivo.CANCEL_OPTION) {
+					System.exit(0);
+				}
+
+				File archivo = elegirArchivo.getSelectedFile();
+				textArea.setText("");
+
+				try {
+					FileReader lectorArchivo = new FileReader(archivo);
+					BufferedReader buffer = new BufferedReader(lectorArchivo);
+
+					String linea = buffer.readLine();
+
+					while (linea != null) {
+
+						textArea.append(linea + "\n");
+						linea = buffer.readLine();
+					}
+
+					buffer.close();
+
+				} catch (FileNotFoundException e1) {
+					System.out.println("No se ha podido encontrar el archivo");
+				} catch (IOException e1) {
+					System.out.println("No se ha podido leer el archivo");
+				}
+
+			}
+		});
+	}
+}

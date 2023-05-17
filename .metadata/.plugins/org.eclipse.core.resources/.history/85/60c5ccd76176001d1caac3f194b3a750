@@ -1,0 +1,13 @@
+//Crea un programa que muestre los siguientes precios (guardados en un array llamado precios)
+//ordenados de menor a mayor, usando el método de selección
+
+package hoja2;
+
+public class Ejer09 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

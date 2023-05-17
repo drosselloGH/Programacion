@@ -1,0 +1,41 @@
+package ejemplo01;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		// creamos un objeto "per" de la clase "persona"
+		Persona per = new Persona();
+
+		// inicializamos los atributos del objeto per
+		per.nombre = "Federico";
+		per.apellidos = "Lopez Sanchez";
+		per.anyoNacimiento = 1980;
+		per.dni = "22100100T";
+
+		// accedemos y mostramos los atributos del objeto per
+		System.out.println("Datos de per");
+		System.out.println("Nombre: " + per.nombre);
+
+		System.out.println("Apellidos:" + per.apellidos);
+		System.out.println("Año nacimiento: " + per.anyoNacimiento);
+		System.out.println("DNI: " + per.dni);
+
+		// creamos otra variable persona
+		Persona per2 = new Persona();
+		per2.nombre = "Francisco";
+		per2.apellidos = "Garcia Aguado";
+		per2.anyoNacimiento = 2000;
+		per2.dni = "10922922H";
+
+		// array de personas
+		Persona[] personas = new Persona[100];
+		
+		//probamos el metodo mostrar() de la clase Persona
+		System.out.println("\nDatos de per2");
+		per2.mostrar();
+		
+
+	}
+
+}

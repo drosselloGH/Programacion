@@ -1,0 +1,12 @@
+package hoja3;
+
+public class Ejer02 {
+
+	public static void main(String[] args) {
+
+		float num1 = 47,8;
+		float num2 = 48;
+
+	}
+
+}

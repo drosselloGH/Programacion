@@ -1,0 +1,28 @@
+//Programa que pide una frase y dos letras. A continuación muestra la frase sustituyendo
+//la primera letra por la segunda
+
+package cadenas;
+
+import java.util.Scanner;
+
+public class Ejer05 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Escriba una frase");
+		String frase = sc.nextLine();
+
+		System.out.println("Escriba una letra");
+		String letra1 = sc.nextLine();
+
+		System.out.println("Escriba otra letra");
+		String letra2 = sc.nextLine();
+		
+		//de esta forma, cambiaremos el valor de la "letra1" de la frase, por el valor de "letra2"
+		String nuevaFrase = frase.replace(letra1, letra2);
+		System.out.println(nuevaFrase);
+
+	}
+
+}

@@ -1,0 +1,15 @@
+
+public class NombreAleatorio {
+
+	public static void main(String[] args) {
+		
+		String alumnos [] = {"Aarón Mateo", "Mihai Aleixandru"};
+		
+		//devuelve un nombre aleatorio
+//		public String voluntario(String[] alumnos) {
+//			return alumnos[Math.rand];
+//		}
+
+	}
+
+}

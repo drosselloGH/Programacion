@@ -1,0 +1,68 @@
+//Programa que lee una frase y crea un array donde cada posición contiene una
+//palabra.
+
+package cadenas;
+
+import java.util.Scanner;
+
+public class Ejer12 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Escriba una frase: ");
+		String frase = sc.nextLine();
+		
+		int cantPalabras = 1;
+
+		// posicion del espacio
+		int espacio = frase.indexOf(' ', 0);
+
+		System.out.println(espacio);
+
+		if (espacio != -1) {
+			cantPalabras++;
+		}
+
+		while (espacio <= frase.length()) {
+			int posSiguiente = frase.indexOf(' ', espacio + 1);
+			espacio = posSiguiente;
+			if (posSiguiente != -1) {
+				cantPalabras++;
+			} else {
+				break;
+			}
+		}
+
+		System.out.println("Cantidad palabras "+cantPalabras);
+
+//		String palabras[] = new String[cantPalabras];
+//
+//		//meter las palabras en el array
+//		
+//		for (int i = 0; i < palabras.length; i++) {
+//			// el inicio será la posición 0 (primer caracter)
+//			int inicio = 0;
+//
+//			// el fin será el espacio encontrado
+//			int fin = frase.indexOf(" ");
+//
+//			//mientras se encuentre un espacio
+//			while (fin != -1) {
+//				palabras[i] = (frase.substring(inicio, fin));
+//				System.out.println(palabras[i]);
+//				// hacemos que el inicio sea la siguiente posicion al espacio
+//				inicio = fin + 1;
+//				// buscamos el siguiente espacio, a partir de la posicion siguiente del anterior
+//				// espacio
+//				fin = frase.indexOf(' ', inicio);
+//			}
+//		}
+//		
+//		System.out.println(Arrays.toString(palabras));
+//
+//		// System.out.println(frase.substring(inicio));
+		
+	}
+
+}

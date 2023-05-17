@@ -1,0 +1,23 @@
+//18.- Escribe una aplicación que muestre en la pantalla todos los múltiplos de 3 menores de 500.
+
+package ejercicios_bucles;
+
+import java.util.Scanner;
+
+public class Ejer18 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Múltiplos de 3 menores que 500");
+		
+		for (int i = 3; i < 500; i++) {
+			if (i % 3 == 0) {
+				System.out.println(i);
+			}
+			
+		}
+
+	}
+
+}

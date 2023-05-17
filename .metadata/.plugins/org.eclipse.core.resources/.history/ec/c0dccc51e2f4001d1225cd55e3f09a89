@@ -1,0 +1,105 @@
+package ejemplos;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Ejemplo03ArrayList {
+
+	public static void main(String[] args) {
+		
+		//declaramos una variable de tipo List que guardará un ArrayList
+		List<String> alumnos = new ArrayList<>();
+		
+		//añadimos algunos alumnos, cada uno al final de la lista
+		alumnos.add("Juan");
+		//añade este elemento a la lista
+		alumnos.add("Elier");
+		alumnos.add("Cesar");
+		alumnos.add("Daniel");
+		
+		//añadimos a Andres entre Elier y Cesar
+		alumnos.add(2, "Andrés");
+		
+		//vemos que hay en la posicion 0 del ArrayList
+		System.out.println(alumnos.get(0));
+		
+		//recorrer la lista
+		System.out.println("Lista de alumnos");
+		System.out.println("================");
+		for(int i = 0; i < alumnos.size(); i++) {
+			System.out.println(alumnos.get(i));
+		}
+		System.out.println();
+		
+		//for mejorado o "for each"
+		for(String nombre: alumnos) {
+			System.out.println(nombre);
+		}
+		
+		//borramos a cesar
+		boolean borrado = alumnos.remove("Alex");
+		if(!borrado) {
+			System.out.println("No se ha encontrado a Alex ");
+		}
+		
+		System.out.println("\nLista de alumnos");
+		System.out.println("================");
+		for(String nombre: alumnos) {
+			System.out.println(nombre);
+		}
+		
+		//borramos por indice
+		String alumnoBorrado = alumnos.remove(2);
+		System.out.println("Acabamos de eliminar al alumno: "+alumnoBorrado);
+		
+		
+		System.out.println("\nLista de alumnos");
+		System.out.println("================");
+		for(String nombre: alumnos) {
+			System.out.println(nombre);
+		}
+		
+		//cambiamos en la posicion 1 a Elier por Alex
+		String alumnoCambiado = alumnos.set(1, "Alex");
+		
+		System.out.println("Se ha sustituido a "+alumnoCambiado+ " por Alex");
+		
+		System.out.println("\nLista de alumnos");
+		System.out.println("================");
+		for(String nombre: alumnos) {
+			System.out.println(nombre);
+		}
+		
+		//comprobamos si Noelia esta en la lista alumnos
+		alumnos.add("Noelia");
+		if(alumnos.contains("Noelia")) {
+			System.out.println("Noelia está en la lista");
+		} else {
+			System.out.println("Noelia no está en la lista");
+		}
+		
+		//vemos en que posicion esta Cesar
+		System.out.println("Cesar esta en la posicion "+alumnos.indexOf("César"));
+		
+		//vemos si la lista esta vacia
+		if(alumnos.isEmpty()) {
+			System.out.println("La lista esta vacia");
+		} else {
+			System.out.println("La lista tiene elementos");
+		}
+		
+		System.out.println("\nLista de alumnos");
+		System.out.println("================");
+		for(String nombre: alumnos) {
+			System.out.println(nombre);
+		}
+		
+		//cuantos alumnos hay en la lista?
+		System.out.println("Hay "+alumnos.size()+" alumnos en la lista");
+		
+		//borrar todos los elementos de  una lista
+		alumnos.clear();
+		
+	}
+	
+}

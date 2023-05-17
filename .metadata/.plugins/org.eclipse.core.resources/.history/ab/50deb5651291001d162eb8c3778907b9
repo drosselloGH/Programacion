@@ -1,0 +1,41 @@
+//- Crea un programa que vaya pidiendo por la terminal los apellidos, el nombre y el sueldo de
+//cuatro empleados de una empresa, y guardándolo como filas en un array bidimensional llamado
+//nominas. A continuación muestra los datos por la pantalla en forma de tabla y calcula el salario total
+//que paga la empresa cada mes
+
+package hoja2;
+
+import java.util.Scanner;
+
+public class Ejer19 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		String nominas[][] = new String[3][2];
+
+		for (int fila = 0; fila < nominas.length; fila++) {
+			for (int columna = 0; columna < nominas[fila].length; columna++) {
+				System.out.println("Escribe el apellido");
+				nominas[fila][columna] = sc.next();
+				
+				System.out.println("Escribe el nombre");
+				nominas[fila][columna] = sc.next();
+				
+				System.out.println("Escribe el sueldo");
+				nominas[fila][columna] = sc.next();
+				System.out.println();
+			}
+
+		}
+		
+		for (int fila = 0; fila < nominas.length; fila++) {
+			for (int columna = 0; columna < nominas[fila].length; columna++) {
+				System.out.println(nominas[fila][columna]);
+				System.out.println();
+			}
+		}
+
+	}
+
+}

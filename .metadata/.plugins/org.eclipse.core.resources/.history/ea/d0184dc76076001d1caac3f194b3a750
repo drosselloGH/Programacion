@@ -1,0 +1,51 @@
+//Escribe una aplicación que vaya preguntando los votos de seis partidos políticos en unas
+//elecciones y guardándolos en un array. Al acabar, dirá cuál ha sido el menor número de votos y cuál
+//el mayor, así como las posiciones del array que ocupan estos partidos
+
+package hoja2;
+
+import java.util.Scanner;
+
+public class Ejer06 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int votosXPartido[] = new int[3];
+
+		for (int i = 0; i < votosXPartido.length; i++) {
+			System.out.println("Escribe la cantidad de votos del partido " + (i + 1));
+			votosXPartido[i] = sc.nextInt();
+
+		}
+
+		// el primer partido tiene mas votos
+		int maxVotos = votosXPartido[0];
+		
+		// indice del partido con mas votos
+		int indiceMax = 0;
+
+		// suponemos que el numero 1 es quien tiene menos votos
+		int minVotos = votosXPartido[0];
+		
+		// indice del partido con menos votos
+		int posMin = 0;
+		
+		int j;
+
+		for (j = 0; j < votosXPartido.length; j++) {
+			if (votosXPartido[j] > maxVotos) {
+				maxVotos = votosXPartido[j];
+				indiceMax = j;
+			}
+			if (votosXPartido[j] < minVotos) {
+				minVotos = votosXPartido[j];
+				posMin = j;
+			}
+		}
+		System.out.println("El partido con mas votos tiene " + maxVotos + " y está en la posicion " + (indiceMax + 1));
+		System.out.println("El partido con mas votos tiene " + minVotos + " y está en la posicion " + (posMin + 1));
+
+	}
+
+}

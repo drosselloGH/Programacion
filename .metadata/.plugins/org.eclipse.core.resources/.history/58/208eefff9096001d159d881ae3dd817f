@@ -1,0 +1,12 @@
+package cadenas;
+
+public class Cadenas3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String palabra1 = "Roma", palabra2 = "
+		
+	}
+
+}

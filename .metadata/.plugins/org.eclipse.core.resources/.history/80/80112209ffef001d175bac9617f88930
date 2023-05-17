@@ -1,0 +1,24 @@
+package ejemplos;
+
+import java.io.File;
+
+import javax.swing.JFileChooser;
+
+public class Ejemplo08JFileChosser {
+
+	public static void main(String[] args) {
+				
+		JFileChooser elegirArchivo = new JFileChooser();
+		int eleccion = elegirArchivo.showOpenDialog(null);
+		
+		//si se ha pulsado CANCELAR
+		if(eleccion == JFileChooser.CANCEL_OPTION) {
+			System.out.println("Has cancelado");
+			return;
+		}
+		
+		//sabemos qué archivo se ha elegido
+		File archivo = elegirArchivo.getSelectedFile();
+		
+	}
+}

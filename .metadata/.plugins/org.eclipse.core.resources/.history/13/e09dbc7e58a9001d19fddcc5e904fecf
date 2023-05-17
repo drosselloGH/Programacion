@@ -1,0 +1,13 @@
+package ejemplo06Banco;
+
+public class CuentaBancaria {
+	double saldo;
+	
+	CuentaBancaria() {
+		
+	}
+	
+	void depositar(int cantidad) {
+		
+	}
+}

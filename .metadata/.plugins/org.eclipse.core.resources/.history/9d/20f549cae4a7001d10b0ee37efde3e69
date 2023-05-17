@@ -1,0 +1,17 @@
+package ejemplo04Circulos;
+
+public class Circulo {
+
+	int x;
+	int y;
+	String color;
+	int radio;
+	
+	void mostrar() {
+		System.out.println("x = "+x);
+		System.out.println("y = "+y);
+		System.out.println("Color = "+color);
+		System.out.println("Radio = "+radio);
+	}
+	
+}

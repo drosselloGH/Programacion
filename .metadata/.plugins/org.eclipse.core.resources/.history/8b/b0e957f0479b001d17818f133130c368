@@ -1,0 +1,15 @@
+package hoja3;
+
+public class Ejer02 {
+
+	public static void main(String[] args) {
+
+		double num1 = 47.5;
+		double num2 = 48;
+
+		System.out.println(num1 > num2);
+		
+		
+	}
+
+}

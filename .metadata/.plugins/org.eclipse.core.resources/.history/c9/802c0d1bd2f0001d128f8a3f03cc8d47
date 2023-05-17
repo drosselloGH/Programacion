@@ -1,0 +1,23 @@
+package ejercicios;
+
+import java.io.File;
+
+import javax.swing.JFileChooser;
+
+public class Ejer05 {
+
+	public void main(String[] args) {
+		
+		JFileChooser elegir = new JFileChooser();
+		
+		int eleccion = elegir.showOpenDialog(null);
+		
+		if(eleccion == JFileChooser.CANCEL_OPTION) {
+			return;
+		}
+		
+		File archivo = elegir.getSelectedFile();
+		
+	}
+	
+}

@@ -1,0 +1,33 @@
+//Crea un método que tome un array de Strings, y un String. Devolverá la posición del String
+//dentro del array, ó -1 si no lo encuentra. Utiliza dos instrucciones return.
+
+package hoja1;
+
+import java.util.Scanner;
+
+public class Ejer13 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		String[] planetas = { "Mercurio", "Venus", "Tierra", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno",
+				"Plutón" };
+
+		System.out.println("Escribe el nombre de un planeta");
+		String planeta = sc.nextLine();
+
+		System.out.println("La posicion del planeta " + planeta + " es " + buscar(planetas, planeta));
+
+	}
+
+	static int buscar(String[] planetas, String planeta) {
+		for (int i = 0; i < planetas.length; i++) {
+			if (planeta.equals(planetas[i])) {
+				return i -1;
+			}
+
+		}
+		return -1;
+	}
+
+}

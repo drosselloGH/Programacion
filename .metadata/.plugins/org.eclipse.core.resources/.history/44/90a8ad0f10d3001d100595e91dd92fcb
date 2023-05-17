@@ -1,0 +1,15 @@
+package ejemplo06TextArea;
+
+import javax.swing.JFrame;
+
+public class Ejemplo06TextArea extends JFrame{
+	
+	super("Ejemplo de textara");
+
+	public static void main(String[] args) {
+		
+		new Ejemplo06TextArea();
+		
+	}
+	
+}

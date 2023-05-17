@@ -1,0 +1,57 @@
+package clase;
+
+import java.util.Scanner;
+
+public class Utilidades {
+
+	private int dividendo;
+	private int divisor;
+	private String cadena;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Escribe un número: ");
+		int dividendo = sc.nextInt();
+		System.out.println("Escribe otro número: ");
+		int divisor = sc.nextInt();
+
+		System.out.println("\nEscribe una cadena de texto con números");
+		String frase = sc.next();
+		String cadena = frase;
+
+		if(Utilidades.division(dividendo, divisor) == 0) {
+			System.out.println("Inoperable");
+		} else {
+			System.out.println(dividendo + "/" + divisor + " = " + Utilidades.division(dividendo, divisor));
+		}
+		
+		System.out.println(Utilidades.extraerNumero(cadena));
+
+	}
+
+	// metodo para dividir dos numeros
+	public static int division(int dividendo, int divisor) {
+		if (dividendo == 0 || divisor == 0) {
+			return 0;
+		} else {
+			return dividendo / divisor;
+		}
+
+	}
+
+	public static int extraerNumero(String cadena) {
+		// recorremos la cadena de caracteres
+		for (int i = 0; i < cadena.length(); i++) {
+			// si el caracter es un dígito
+			if (Character.isDigit(cadena.charAt(i))) {
+				// lo añadimos a la cadena vacía
+				return Character.getNumericValue(cadena.charAt(i));
+
+			}
+		}
+		// int numero = Integer.parseInt(n);
+		return 0;
+	}
+
+}

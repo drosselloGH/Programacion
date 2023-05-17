@@ -1,0 +1,28 @@
+//7.- Crea un programa que escriba los 50 primeros números pares.
+
+package ejercicios_bucles;
+
+import java.util.Scanner;
+
+public class Ejer07 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Primeros 50 numeros pares");
+
+		int num = 1;
+
+		int contador = 0;
+
+		while (contador <= 50) {
+			if (num % 2 == 0) {
+				contador++;
+				System.out.println(contador + ") " + num);
+			}
+			num++;
+		}
+
+	}
+
+}

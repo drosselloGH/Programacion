@@ -1,0 +1,41 @@
+//Programa que lee una frase y crea un array donde cada posición contiene una
+//palabra.
+
+package cadenas;
+
+import java.util.Scanner;
+
+public class Ejer12 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Escriba una frase: ");
+		String frase = sc.nextLine();
+		
+		int cantPalabras = 0;
+		
+		int inicio = 0;
+		int fin = frase.indexOf(' ');
+		
+		while (fin != -1) {
+			inicio = fin +1;
+			fin = frase.indexOf(' ', inicio);
+			cantPalabras++;
+		}
+		
+		System.out.println("Cant palabras: " + cantPalabras);
+
+		String palabras[] = new String[cantPalabras];
+
+		
+		//meter las palabras en el array
+		
+		inicio = 0;
+		fin = frase.indexOf(' ');
+		
+		int posNuevaPalabra = 0;
+		
+	}
+
+}

@@ -1,0 +1,19 @@
+//Programa que lee una frase y luego muestra las palabras sueltas (una en cada línea).
+
+package cadenas;
+
+import java.util.Scanner;
+
+public class Ejer11 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Escriba una frase: ");
+		String frase = sc.nextLine();
+		
+		
+
+	}
+
+}

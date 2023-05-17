@@ -1,0 +1,19 @@
+//Leer una frase y generar su acrónimo (primera letra, en mayúsculas, de cada frase).
+
+package cadenas;
+
+import java.util.Scanner;
+
+public class Ejer16 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Escriba una frase");
+		String frase = sc.nextLine();
+		
+		
+
+	}
+
+}

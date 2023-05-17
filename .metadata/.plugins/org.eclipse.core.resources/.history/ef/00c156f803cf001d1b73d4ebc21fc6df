@@ -1,0 +1,25 @@
+package ejemplo04;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+
+public class Ejemplo04RadioButton extends JFrame{
+	
+	public Ejemplo04RadioButton() {
+		super("Islas Baleares");
+		
+		setSize(200, 200);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setLayout(new FlowLayout());
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		Ejemplo04RadioButton ejemplo = new Ejemplo04RadioButton();
+		
+	}
+
+}

@@ -1,0 +1,49 @@
+package auxiliar;
+
+import java.util.Scanner;
+
+public class Alumno {
+
+	private int numExpediente;
+	private String apellidos;
+	private String nombre;
+	private Grupo grupo;
+
+	public Alumno() {
+
+	}
+
+	public Alumno(int numExpediente, String apellidos, String nombre, Grupo grupo) {
+		this.numExpediente = numExpediente;
+		this.apellidos = apellidos;
+		this.nombre = nombre;
+		this.grupo = grupo;
+	}
+
+	public String toString() {
+		String datosAlumno = "Datos Alumno: \n\tNumero expediente: " + numExpediente + "\n\tApellidos: " + apellidos
+				+ "\n\tNombre: " + nombre + "\n\tGrupo: " + grupo.toString();
+		return datosAlumno;
+	}
+
+	public void leeDatos() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Numero de expediente");
+		numExpediente = sc.nextInt();
+
+		sc.nextLine();
+		System.out.println("Apellidos");
+		apellidos = sc.nextLine();
+
+		System.out.println("Nombre");
+		nombre = sc.nextLine();
+
+		sc.next()
+		System.out.println("Grupo");
+		grupo = new Grupo();
+		//si no creamos el new Grupo(), saldrá este error
+		//null pointer excepcion
+		grupo.leeDatos();
+	}
+
+}

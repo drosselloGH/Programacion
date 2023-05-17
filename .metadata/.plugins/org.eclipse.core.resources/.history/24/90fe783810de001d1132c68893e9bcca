@@ -1,0 +1,12 @@
+package ejemplo09SwingAvanzado;
+
+import javax.swing.ImageIcon;
+
+public class JToolBar {
+
+	public static void main(String[] args) {
+
+		ImageIcon imgCargar = new ImageIcon("iconos/gif");
+		
+	}
+}

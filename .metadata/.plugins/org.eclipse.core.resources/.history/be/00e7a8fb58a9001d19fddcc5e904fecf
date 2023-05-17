@@ -1,0 +1,24 @@
+package ejemplo06Banco;
+
+public class CuentaBancaria {
+	int saldo;
+	
+	CuentaBancaria() {
+		
+	}
+	
+	void depositar(int cantidad) {
+		saldo = saldo + cantidad;
+	}
+	
+	boolean retirar(int cantidad){
+		if(cantidad > saldo) {
+			return true;
+		}
+		return false;
+	}
+	
+	obtenerSaldo() {
+		return saldo;
+	}
+}

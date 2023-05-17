@@ -1,0 +1,54 @@
+//Programa que lee una frase y luego muestra las palabras sueltas (una en cada línea).
+
+package cadenas;
+
+import java.util.Scanner;
+
+public class Ejer11 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Escriba una frase: ");
+		String frase = sc.nextLine();
+		
+		//empezaremos a buscar por el inicio
+		int posInicio = 0;
+		
+		int posEsp = 0;
+		
+		while(posEsp != -1) {
+			posEsp = frase.indexOf(' ', posInicio);
+			System.out.println(posEsp);
+			
+			//System.out.println(frase.substring(posInicio, posEsp));
+			
+			 
+			//mientras se encuentre un espacio
+			System.out.println(frase.substring(posInicio, posEsp));
+			posInicio = posEsp;
+			System.out.println(posInicio);
+			break;
+			
+			
+//			if(posEsp == -1) {
+//				System.out.println(frase.substring(posInicio, frase.length()));
+//				break;
+//			}
+			
+		}
+		
+//		posEsp = frase.indexOf(' ', posInicio);
+//		System.out.println(posEsp);
+//		
+//		//System.out.println(frase.substring(posInicio, posEsp));
+//		
+//		 
+//		//mientras se encuentre un espacio
+//		System.out.println(frase.substring(posInicio, posEsp));
+//		posInicio = posEsp;
+		
+
+	}
+
+}

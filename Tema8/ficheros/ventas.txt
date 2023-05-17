@@ -1,0 +1,3 @@
+2093JYY,Peugot 206,12000
+2094JYY,Seat León,16000
+2095JYY,Renault Megane,16500 

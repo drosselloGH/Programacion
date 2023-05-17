@@ -1,0 +1,33 @@
+//8.- Modifica el programa anterior para que el programa pare de pedir notas si se le pasa un valor
+//negativo
+
+package hoja1;
+
+import java.util.Scanner;
+
+public class Ejer08 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		float[] notas = new float[10];
+		int i = 0;
+		float nota;
+
+		while (i < notas.length) {
+			System.out.println("Escribe una nota");
+			nota = sc.nextFloat();
+			if(nota >= 0.0) {
+				nota = notas[i];
+				i++;
+			} else {
+				break;
+			}
+		}
+		for (int j = 0; j < notas.length; j++) {
+			System.out.println("Nota " + (j + 1) + " = " + notas[j]);
+		}
+
+	}
+
+}

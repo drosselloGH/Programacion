@@ -1,0 +1,25 @@
+//6.- Crea un programa que escriba todos los números pares menores de 200.
+
+package ejercicios_bucles;
+
+import java.util.Scanner;
+
+public class Ejer06b {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int contador = 0;
+		int num = 2;
+
+		while (contador <= 200) {
+			if (num % 2 == 0) {
+				System.out.println(contador + ") " + num);
+				contador++;
+			}
+			num++;
+		}
+
+	}
+
+}

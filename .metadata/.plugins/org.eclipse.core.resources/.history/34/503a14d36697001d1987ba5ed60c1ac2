@@ -1,0 +1,19 @@
+//Coger una cadena y poner la primera letra de cada palabra en mayúsculas
+
+package cadenas;
+
+import java.util.Scanner;
+
+public class Ejer18 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Escriba una frase");
+		String frase = sc.nextLine();
+		
+		
+
+	}
+
+}

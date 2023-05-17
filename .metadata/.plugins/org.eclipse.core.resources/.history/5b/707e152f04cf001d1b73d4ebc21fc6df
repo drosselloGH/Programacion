@@ -1,0 +1,33 @@
+package ejemplo04;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+
+public class Ejemplo04RadioButton extends JFrame{
+	
+	public Ejemplo04RadioButton() {
+		super("Islas Baleares");
+		
+		setSize(200, 200);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		JRadioButton rdbMallorca = new JRadioButton("Mallorca");
+		JRadioButton rdbMenorca = new JRadioButton("Menorca");
+		JRadioButton rdbIbiza = new JRadioButton("Ibiza");
+		JRadioButton rdbFormentera = new JRadioButton("Formentera");
+		
+		setVisible(true);
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		Ejemplo04RadioButton ejemplo = new Ejemplo04RadioButton();
+		
+	}
+
+}

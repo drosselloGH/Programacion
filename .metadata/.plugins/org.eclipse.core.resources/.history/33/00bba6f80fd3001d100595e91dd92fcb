@@ -1,0 +1,9 @@
+package ejemplo06TextArea;
+
+import javax.swing.JFrame;
+
+public class Ejemplo06TextArea extends JFrame{
+	
+	
+
+}

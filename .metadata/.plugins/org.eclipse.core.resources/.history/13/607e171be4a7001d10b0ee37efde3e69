@@ -1,0 +1,10 @@
+package ejemplo04Circulos;
+
+public class Circulo {
+
+	int x;
+	int y;
+	String color;
+	int radio;
+	
+}

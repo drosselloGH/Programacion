@@ -1,0 +1,25 @@
+//En una biblioteca pública necesitan un programa para ir rellenando las fichas de los libros. Los
+//datos a guardar de cada libro son: ISBN, título, autor y editorial.
+//Crea un programa que pida por consola 5 registros con los datos anteriores y los guarde en un array
+//llamado libros.
+
+package hoja3;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Ejer01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		String libros[][] = { { "ISBN", "Título", "Autor", "Editorial" }, { null, null, null, null },
+				{ null, null, null, null }, { null, null, null, null }, { null, null, null, null },
+				{ null, null, null, null } };
+		for (int i = 0; i < libros.length; i++) {
+			System.out.println(Arrays.toString(libros[i]));
+		}
+
+	}
+
+}

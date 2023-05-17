@@ -1,0 +1,21 @@
+package ejemplo09SwingAvanzado;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+public class JToolBar extends JFrame {
+	
+	public JToolBar() {
+		super("Barra de herramientas");
+		
+		
+	}
+
+	public static void main(String[] args) {
+
+		new JToolBar();
+		
+		ImageIcon imgCargar = new ImageIcon("iconos/gif");
+		
+	}
+}

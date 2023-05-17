@@ -1,0 +1,17 @@
+package cadenas;
+
+public class Cadenas4 {
+
+	public static void main(String[] args) {
+
+		double pulgadasTV = 15.6;
+
+		// String pulgadas = "" + pulgadasTV;
+
+		String pulgadas = String.valueOf(pulgadasTV);
+
+		System.out.println("El tamaño de la tele es de " + pulgadas + " pulgadas");
+
+	}
+
+}

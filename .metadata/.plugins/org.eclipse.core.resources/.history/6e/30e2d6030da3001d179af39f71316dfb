@@ -1,0 +1,13 @@
+//Desarrolla modularmente (usando tres métodos, además de main( )) un programa que solicite
+//por consola una lista de números enteros, los ordene y los muestre en pantalla.
+
+package hoja1;
+
+public class Ejer15 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,59 @@
+//Esta tabla muestra los nombres y precios de cuatro artículos de unos grandes almacenesGuarda la información en un array llamado precios. Después, muestra esta información en pantalla
+//y calcula el precio total de los cuatro artículos.
+//
+//Añade al programa anterior otro bucle que recorra el array y encuentre el menor y el mayor
+//precio.
+
+package hoja2;
+
+public class Ejer15 {
+
+	public static void main(String[] args) {
+
+		String precios[][] = { { "Tablet Samsung", "120" }, { "Móvil Sony", "115" }, { "Ipad Mini", "290" },
+				{ "Móvil HTC", "95" } };
+
+		System.out.println("Artículos");
+		System.out.println("=====================");
+
+		for (int fila = 0; fila < precios.length; fila++) {
+			System.out.println();
+			for (int columna = 0; columna < precios[fila].length; columna++) {
+				System.out.print(precios[fila][columna] + "\t");
+			}
+		}
+
+		// aqui es donde irá toda la suma de los precios
+		float precioTotal = 0;
+
+		// primero debemos mostrar todos los elementos de la columna 1 de cada una de
+		// las filas
+
+		for (int fila = 0; fila <= precios.length - 1; fila++) {
+
+			float precio = Float.parseFloat(precios[fila][1]);
+
+			precioTotal += precio;
+		}
+		System.out.println();
+		System.out.println("\nTotal: " + precioTotal + " €");
+
+		float min = 0, max = 0;
+
+		for (int fila = 0; fila < precios.length; fila++) {
+			float precio = Float.parseFloat(precios[fila][1]);
+
+			if (precio > max) {
+				max = precio;
+			} else {
+				min = precio;
+			}
+
+		}
+
+		System.out.println("El precio más bajo es: " + min);
+		System.out.println("El precio más alto es: " + max);
+
+	}
+
+}

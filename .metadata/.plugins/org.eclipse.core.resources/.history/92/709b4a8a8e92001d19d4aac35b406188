@@ -1,0 +1,12 @@
+//Programa que lee una frase desde el teclado y nos muestra la primera palabra
+
+package cadenas;
+
+public class Ejer08 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;autores&apos; in &apos;biblioteca.Libro.muestraAutores()&apos; to &apos;listaAutores&apos;&#x0A;- Original project: &apos;Proyecto04&apos;&#x0A;- Original element: &apos;biblioteca.Libro.muestraAutores().autores&apos;&#x0A;- Renamed element: &apos;autores&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;autores&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;biblioteca{Libro.java[Libro~muestraAutores@autores!1344!1385!1351!1357!QString;!0!false" name="listaAutores" references="true" stamp="1677768378374" version="1.0"/>
+</session>

@@ -1,0 +1,45 @@
+package ejercicios;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Ejer04 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Título de la página: ");
+		String titulo = sc.nextLine();
+		System.out.print("Encabezado de la página: ");
+		String encabezado = sc.nextLine();
+		System.out.print("Contenido de la página");
+		String contenido = sc.nextLine();
+
+		System.out.print("Se ha creado la página en tu carpeta personal. De nada.");
+
+	}
+
+	private static void crearWeb(String titulo, String encabezado, String contenido) {
+
+		final String NOMBRE_ARCHIVO = System.getProperty("user.home");
+
+		try {
+			FileWriter archivo = new FileWriter(NOMBRE_ARCHIVO, true);
+		} catch (IOException e) {
+			System.out.println("No se ha podido crear el archivo");
+		}
+		
+		/*CODIGO HTML*/
+		String codigo = "<!DOCTYPE html>\n"
+		+ "<head>\n"
+		+ "    <title>"+titulo+"</title>\n"
+		+ "</head>\n"
+		+ "<body>\n"
+		+ "    \n"
+		+ "</body>\n"
+		+ "</html>";
+	}
+
+}
