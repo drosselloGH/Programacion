@@ -49,7 +49,7 @@ public class Ejemplo04 {
 		
 		System.out.println("El primer heroe de la lista es "+heroes.get(0));
 		
-		//heroes.clear();
+		heroes.clear();
 
 
 	}
