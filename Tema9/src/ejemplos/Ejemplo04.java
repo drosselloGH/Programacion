@@ -24,6 +24,32 @@ public class Ejemplo04 {
 		mostrarHeroes(heroes);
 		
 		System.out.println("En la lista heroes hay "+heroes.size()+" heroes");
+		
+		if(!heroes.contains("Spiderman")) {
+			System.out.println("La lista no contiene a Spiderman");
+		}
+		
+		heroes.set(2, "Spiderman");
+		
+		mostrarHeroes(heroes);
+		
+		if(heroes.contains("Spiderman")) {
+			System.out.println("La lista contiene a Spiderman");
+		}
+		
+		if(heroes.isEmpty()) {
+			System.out.println("La lista esta vacia");
+		} else {
+			System.out.println("La lista no esta vacia");
+		}
+		
+		System.out.println("La lista contiene "+heroes.size()+" heroes");
+		
+		mostrarHeroes(heroes);
+		
+		System.out.println("El primer heroe de la lista es "+heroes.get(0));
+		
+		//heroes.clear();
 
 
 	}
