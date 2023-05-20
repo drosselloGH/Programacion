@@ -2,6 +2,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -78,7 +79,7 @@ public class HallOfFame extends JFrame {
 	}
 
 	
-					/*SE SUPONE QUE FUNCIONA*/
+								/*SE SUPONE QUE FUNCIONA*/
 	
 	
 	/**
@@ -96,6 +97,10 @@ public class HallOfFame extends JFrame {
 		return jugador;
 	}
 
+	
+								/*FUNCIONA, CREO */
+	
+	
 	/**
 	 * Guarda la información de un jugador en el archivo de disco, en formato csv.
 	 *
@@ -107,7 +112,9 @@ public class HallOfFame extends JFrame {
 			FileWriter archivo = new FileWriter("fichero/jugadores.txt");
 			BufferedWriter buffer = new BufferedWriter(archivo);
 			
+			buffer.write(jugador.getNombre()+","+jugador.getPuntuacion()+"\n");
 			
+			buffer.close();			
 			
 		} catch (IOException e) {
 			System.out.println("No se pudo guardar el archivo");
@@ -126,6 +133,19 @@ public class HallOfFame extends JFrame {
 		try {
 			FileReader archvivo = new FileReader("ficheros/jugadores.txt");
 			new HallOfFame();
+			
+			BufferedReader buffer = new BufferedReader(archvivo);
+			
+			String linea = buffer.readLine();
+			
+			while(linea != null) {
+				String datos[] = linea.split(",");
+				System.out.println(datos[0]+"..."+datos[1]);
+				linea = buffer.readLine();
+			}
+			
+			buffer.close();
+			
 		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(null,
 					"No se han encontrado datos guardados de jugadores. Se creará un archivo nuevo");
@@ -134,10 +154,14 @@ public class HallOfFame extends JFrame {
 			} catch (IOException e1) {
 				JOptionPane.showMessageDialog(null, "No se ha podido crear el archivo");
 			}
+		} catch (IOException e) {
+			System.out.println("No se pudo leer el archivo");
 		}
 	}
 
+	
 								/*REVISAR*/
+	
 	
 	/**
 	 * Borra el contenido del archivo de jugadores, dejándolo en blanco. Y la lista
