@@ -19,7 +19,6 @@ public class HallOfFame extends JFrame {
 		setSize(330, 500);
 		setLayout(new FlowLayout());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
 		JLabel lblInicio = new JLabel("***Hall of Fame***");
 
 		JList<String> lstJugadores = new JList<>();
@@ -34,8 +33,7 @@ public class HallOfFame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String nombre = JOptionPane.showInputDialog("¿Nombre del jugador?");
-				String puntuacion = JOptionPane.showInputDialog("¿Puntuación del jugador?");
+				nuevoJugador();
 
 			}
 		});
@@ -47,13 +45,7 @@ public class HallOfFame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int borrar = JOptionPane.showConfirmDialog(null,
-						"¿Seguro que quieres borrar todos los datos de jugadores?", "Advertencia",
-						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-
-				if (borrar == 1) {
-					JOptionPane.showMessageDialog(null, "Operación cancelada. No se ha borrado ningún dato.");
-				}
+				borrarArchivo();
 
 			}
 		});
@@ -67,15 +59,7 @@ public class HallOfFame extends JFrame {
 	}
 
 	public static void main(String[] args) {
-
 		cargarJugadores();
-		new HallOfFame();
-
-		try {
-			FileWriter archivo = new FileWriter("ficheros/jugadores.txt");
-		} catch (IOException e1) {
-			JOptionPane.showMessageDialog(null, "No se ha podido crear el archivo");
-		}
 	}
 
 	/**
@@ -83,6 +67,8 @@ public class HallOfFame extends JFrame {
 	 * listener del botón Nuevo.
 	 */
 	private void nuevoJugador() {
+		String nombre = JOptionPane.showInputDialog("¿Nombre del jugador?");
+		String puntuacion = JOptionPane.showInputDialog("¿Puntuación del jugador?");
 	}
 
 	/**
@@ -109,10 +95,15 @@ public class HallOfFame extends JFrame {
 //	 */
 	public static void cargarJugadores() {
 		try {
-			FileReader archvivo = new FileReader("\ficheros/jugadores.txt");
+			FileReader archvivo = new FileReader("/ficheros/jugadores.txt");
 		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(null,
 					"No se han encontrado datos guardados de jugadores. Se creará un archivo nuevo");
+			try {
+				FileWriter archivo = new FileWriter("/ficheros/jugadores.txt", true);
+			} catch (IOException e1) {
+				JOptionPane.showMessageDialog(null, "No se ha podido crear el archivo");
+			}
 		}
 	}
 
@@ -122,6 +113,11 @@ public class HallOfFame extends JFrame {
 	 * botón Borrar.
 	 */
 	public void borrarArchivo() {
+		int borrar = JOptionPane.showConfirmDialog(null, "¿Seguro que quieres borrar todos los datos de jugadores?",
+				"Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
+		if (borrar == 1) {
+			JOptionPane.showMessageDialog(null, "Operación cancelada. No se ha borrado ningún dato.");
+		}
 	}
 }
