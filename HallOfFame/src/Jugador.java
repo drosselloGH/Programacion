@@ -3,6 +3,11 @@ public class Jugador {
 
 	private String nombre;
 	private int puntuacion;
+	
+	public Jugador(String nombre, int puntuacion) {
+		this.nombre = nombre;
+		this.puntuacion = puntuacion;
+	}
 
 	public String getNombre() {
 		return nombre;

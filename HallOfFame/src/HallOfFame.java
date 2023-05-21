@@ -20,6 +20,8 @@ public class HallOfFame extends JFrame {
 
 	private JList<String> lstJugadores;
 
+	private static final String RUTA_ARCHIVO = "ficheros/jugadores.txt";
+	
 	public HallOfFame() {
 		super("Puntuaciones");
 		setSize(330, 500);
@@ -74,13 +76,12 @@ public class HallOfFame extends JFrame {
 	 * listener del botón Nuevo.
 	 */
 	private void nuevoJugador() {
-		leerDatosJugador();
+		//el jugador recibe sus datos
+		Jugador jugador = leerDatosJugador();
+		//pasamos los datos del jugadador como parámetro
+		guardarJugador(jugador);
 
 	}
-
-	
-								/*SE SUPONE QUE FUNCIONA*/
-	
 	
 	/**
 	 * Pide al usuario los datos de un nuevo jugador y devuelve un objeto Jugador.
@@ -91,16 +92,10 @@ public class HallOfFame extends JFrame {
 	private Jugador leerDatosJugador() {
 		String nombre = JOptionPane.showInputDialog("¿Nombre del jugador?");
 		String puntuacion = JOptionPane.showInputDialog("¿Puntuación del jugador?");
-		Jugador jugador = new Jugador();
-		jugador.setNombre(nombre);
-		jugador.setPuntuacion((Integer.parseInt(puntuacion)));
+		Jugador jugador = new Jugador(nombre, Integer.parseInt(puntuacion));
 		return jugador;
 	}
 
-	
-								/*FUNCIONA, CREO */
-	
-	
 	/**
 	 * Guarda la información de un jugador en el archivo de disco, en formato csv.
 	 *
@@ -109,7 +104,7 @@ public class HallOfFame extends JFrame {
 
 	public void guardarJugador(Jugador jugador) {
 		try {
-			FileWriter archivo = new FileWriter("fichero/jugadores.txt");
+			FileWriter archivo = new FileWriter(RUTA_ARCHIVO, true);
 			BufferedWriter buffer = new BufferedWriter(archivo);
 			
 			buffer.write(jugador.getNombre()+","+jugador.getPuntuacion()+"\n");
@@ -131,7 +126,7 @@ public class HallOfFame extends JFrame {
 	 */
 	public static void cargarJugadores() {
 		try {
-			FileReader archvivo = new FileReader("ficheros/jugadores.txt");
+			FileReader archvivo = new FileReader(RUTA_ARCHIVO);
 			new HallOfFame();
 			
 			BufferedReader buffer = new BufferedReader(archvivo);
@@ -140,7 +135,9 @@ public class HallOfFame extends JFrame {
 			
 			while(linea != null) {
 				String datos[] = linea.split(",");
-				System.out.println(datos[0]+"..."+datos[1]);
+				String nombre = datos[0];
+				int puntos = Integer.parseInt(datos[1]);
+				System.out.println(nombre+"..."+puntos);
 				linea = buffer.readLine();
 			}
 			
@@ -150,7 +147,7 @@ public class HallOfFame extends JFrame {
 			JOptionPane.showMessageDialog(null,
 					"No se han encontrado datos guardados de jugadores. Se creará un archivo nuevo");
 			try {
-				FileWriter archivo = new FileWriter("ficheros/jugadores.txt", true);
+				FileWriter archivo = new FileWriter(RUTA_ARCHIVO, true);
 			} catch (IOException e1) {
 				JOptionPane.showMessageDialog(null, "No se ha podido crear el archivo");
 			}
@@ -172,15 +169,14 @@ public class HallOfFame extends JFrame {
 		int borrar = JOptionPane.showConfirmDialog(null, "¿Seguro que quieres borrar todos los datos de jugadores?",
 				"Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-		if (borrar == 1) {
+		if (borrar ==JOptionPane.NO_OPTION) {
 			JOptionPane.showMessageDialog(null, "Operación cancelada. No se ha borrado ningún dato.");
 		} else {
 			try {
-				FileWriter archivo = new FileWriter("ficheros/jugadores.txt");
+				FileWriter archivo = new FileWriter(RUTA_ARCHIVO);
 				BufferedWriter buffer = new BufferedWriter(archivo);
-
-				buffer.write("");
-
+				buffer.close();
+				
 			} catch (IOException e) {
 				System.out.println("No se pudo borrar los datos");
 			}
