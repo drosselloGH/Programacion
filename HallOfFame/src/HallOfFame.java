@@ -20,6 +20,7 @@ import javax.swing.JScrollPane;
 public class HallOfFame extends JFrame {
 
 	private JList<String> lstJugadores;
+	//esto es necesario para poder añadir/borrar elementos de un JList
 	private static DefaultListModel<String> modelo;
 
 	private static final String RUTA_ARCHIVO = "ficheros/jugadores.txt";
@@ -83,7 +84,8 @@ public class HallOfFame extends JFrame {
 		Jugador jugador = leerDatosJugador();
 		//pasamos los datos del jugadador como parámetro
 		guardarJugador(jugador);
-		modelo.addElement(jugador.getNombre()+"..."+jugador.getPuntuacion());
+		//hacemos que el JList almacene los datos del jugador
+		modelo.addElement(jugador.getNombre() +"..."+jugador.getPuntuacion());
 
 	}
 	
@@ -111,6 +113,7 @@ public class HallOfFame extends JFrame {
 			FileWriter archivo = new FileWriter(RUTA_ARCHIVO, true);
 			BufferedWriter buffer = new BufferedWriter(archivo);
 			
+			//guardamos los datos como un fichero .CSV
 			buffer.write(jugador.getNombre()+","+jugador.getPuntuacion()+"\n");
 			
 			buffer.close();			
@@ -119,10 +122,6 @@ public class HallOfFame extends JFrame {
 			System.out.println("No se pudo guardar el archivo");
 		}
 	}
-
-	
-							/*FUNCIONA, CREO*/
-	
 	
 	/**
 	 * Lee los datos sobre nombres y puntuaciones de jugadores. Los añade a la lista
@@ -137,6 +136,7 @@ public class HallOfFame extends JFrame {
 			
 			String linea = buffer.readLine();
 			
+			//mostramos cada una de las líneas del archivo
 			while(linea != null) {
 				String datos[] = linea.split(",");
 				String nombre = datos[0];
@@ -159,10 +159,6 @@ public class HallOfFame extends JFrame {
 			System.out.println("No se pudo leer el archivo");
 		}
 	}
-
-	
-								/*REVISAR*/
-	
 	
 	/**
 	 * Borra el contenido del archivo de jugadores, dejándolo en blanco. Y la lista
@@ -173,13 +169,16 @@ public class HallOfFame extends JFrame {
 		int borrar = JOptionPane.showConfirmDialog(null, "¿Seguro que quieres borrar todos los datos de jugadores?",
 				"Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
+		//si el usuario decide cancelar la operación de borrado
 		if (borrar ==JOptionPane.NO_OPTION) {
 			JOptionPane.showMessageDialog(null, "Operación cancelada. No se ha borrado ningún dato.");
+			//si el usuario decice borrar los datos
 		} else {
 			try {
 				FileWriter archivo = new FileWriter(RUTA_ARCHIVO);
 				BufferedWriter buffer = new BufferedWriter(archivo);
 				buffer.close();
+				//vaciamos el JList
 				modelo.clear();
 				
 			} catch (IOException e) {
