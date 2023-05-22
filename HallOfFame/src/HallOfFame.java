@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +20,7 @@ import javax.swing.JScrollPane;
 public class HallOfFame extends JFrame {
 
 	private JList<String> lstJugadores;
+	private static DefaultListModel<String> modelo;
 
 	private static final String RUTA_ARCHIVO = "ficheros/jugadores.txt";
 	
@@ -29,7 +31,8 @@ public class HallOfFame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		JLabel lblInicio = new JLabel("***Hall of Fame***");
 
-		lstJugadores = new JList<>();
+		modelo = new DefaultListModel<>();
+		lstJugadores = new JList<>(modelo);
 		JScrollPane srcPanel = new JScrollPane(lstJugadores);
 
 		srcPanel.setPreferredSize(new Dimension(300, 400));
@@ -80,6 +83,7 @@ public class HallOfFame extends JFrame {
 		Jugador jugador = leerDatosJugador();
 		//pasamos los datos del jugadador como parámetro
 		guardarJugador(jugador);
+		modelo.addElement(jugador.getNombre()+"..."+jugador.getPuntuacion());
 
 	}
 	
@@ -136,8 +140,8 @@ public class HallOfFame extends JFrame {
 			while(linea != null) {
 				String datos[] = linea.split(",");
 				String nombre = datos[0];
-				int puntos = Integer.parseInt(datos[1]);
-				System.out.println(nombre+"..."+puntos);
+				String puntos = datos[1];
+				modelo.addElement(nombre+"..."+puntos);
 				linea = buffer.readLine();
 			}
 			
@@ -176,6 +180,7 @@ public class HallOfFame extends JFrame {
 				FileWriter archivo = new FileWriter(RUTA_ARCHIVO);
 				BufferedWriter buffer = new BufferedWriter(archivo);
 				buffer.close();
+				modelo.clear();
 				
 			} catch (IOException e) {
 				System.out.println("No se pudo borrar los datos");
