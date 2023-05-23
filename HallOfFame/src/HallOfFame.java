@@ -177,6 +177,7 @@ public class HallOfFame extends JFrame {
 			try {
 				FileWriter archivo = new FileWriter(RUTA_ARCHIVO);
 				BufferedWriter buffer = new BufferedWriter(archivo);
+				
 				buffer.close();
 				//vaciamos el JList
 				modelo.clear();
