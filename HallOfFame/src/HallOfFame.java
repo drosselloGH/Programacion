@@ -85,6 +85,7 @@ public class HallOfFame extends JFrame {
 		//pasamos los datos del jugadador como parámetro
 		guardarJugador(jugador);
 		//hacemos que el JList almacene los datos del jugador
+		//se muestran los datos al momento
 		modelo.addElement(jugador.getNombre() +"..."+jugador.getPuntuacion());
 
 	}
@@ -177,6 +178,7 @@ public class HallOfFame extends JFrame {
 			try {
 				FileWriter archivo = new FileWriter(RUTA_ARCHIVO);
 				BufferedWriter buffer = new BufferedWriter(archivo);
+				
 				buffer.close();
 				//vaciamos el JList
 				modelo.clear();
