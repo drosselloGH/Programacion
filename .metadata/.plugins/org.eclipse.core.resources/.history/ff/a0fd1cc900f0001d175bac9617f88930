@@ -1,9 +1,0 @@
-package ejemplos;
-
-public class Ejemplo09FileChooser {
-
-	public Ejemplo09FileChooser() {
-		// TODO Auto-generated constructor stub
-	}
-	
-}
