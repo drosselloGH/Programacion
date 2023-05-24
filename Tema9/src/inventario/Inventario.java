@@ -161,6 +161,7 @@ public class Inventario extends JFrame {
 				"Alta en el inventario", JOptionPane.QUESTION_MESSAGE);
 		// escribe el nombre en pantalla
 		modeloListaInventario.addElement(articulo);
+		// añade el artículo al ArrayList
 		listaArticulos.add(articulo);
 
 	}
@@ -171,7 +172,9 @@ public class Inventario extends JFrame {
 	 * 
 	 */
 	private void eliminarArticulo() {
+		//elimina el artículo del ArrayList
 		listaArticulos.remove(lstInventario.getSelectedIndex());
+		//elimina el artículo de la pantalla
 		modeloListaInventario.remove(lstInventario.getSelectedIndex());
 
 	}
@@ -183,13 +186,18 @@ public class Inventario extends JFrame {
 	 */
 	private void buscarArticulo() {
 		try {
+			//pide el nombre que se desea buscar
 			String nombreArticulo = JOptionPane.showInputDialog(null, "¿Qué artículo quieres buscar?",
 					"Buscar un artículo", JOptionPane.QUESTION_MESSAGE);
 
+		//si el nombre no es nulo y no está vacío
 		if(nombreArticulo != null && !nombreArticulo.isEmpty()) {
+			//buscamos la posición del artículo
 			int posicion = listaArticulos.indexOf(nombreArticulo);
+			//si no se encuentra el artículo
 			if(posicion == -1) {
 				JOptionPane.showMessageDialog(null, "El artículo no se encuentra en la lista", "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+			// si se encuentra
 			} else{
 				JOptionPane.showMessageDialog(null, "El artículo está en la posición "+posicion, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
 
@@ -239,6 +247,7 @@ public class Inventario extends JFrame {
 			String linea = buffer.readLine();
 
 			while (linea != null) {
+				//se añade cada elemento al ArrayList y al JList
 				modeloListaInventario.addElement(linea);
 				listaArticulos.add(linea);
 				linea = buffer.readLine();
