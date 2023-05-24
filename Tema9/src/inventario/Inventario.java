@@ -157,8 +157,9 @@ public class Inventario extends JFrame {
 		// TODO: Preguntamos al usuario el nombre del artículo que quiere añadir
 		// y, si es un dato válido, lo añadimos al ArrayList y al JList.
 
-		String articulo = JOptionPane.showInputDialog(null, "Escribe el artículo que quieres añadir", "Alta en el inventario",
-				JOptionPane.QUESTION_MESSAGE);
+		String articulo = JOptionPane.showInputDialog(null, "Escribe el artículo que quieres añadir",
+				"Alta en el inventario", JOptionPane.QUESTION_MESSAGE);
+		// escribe el nombre en pantalla
 		modeloListaInventario.addElement(articulo);
 		listaArticulos.add(articulo);
 
@@ -177,25 +178,31 @@ public class Inventario extends JFrame {
 		// TODO: Preguntamos al usuario por un artículo. Si es un dato válido,
 		// lo buscamos en el ArrayList y le indicamos la posición o bien que no
 		// se encuentra en el inventario.
+		try {
+			String nombreArticulo = JOptionPane.showInputDialog(null, "¿Qué artículo quieres buscar?",
+					"Buscar un artículo", JOptionPane.QUESTION_MESSAGE);
 
-		String nombreArticulo = JOptionPane.showInputDialog(null, "¿Qué artículo quieres buscar?", "Buscar un artículo", JOptionPane.QUESTION_MESSAGE);
-		for(int i = 0; i <= listaArticulos.size(); i++) {
-			
+//			if (modeloListaInventario.contains(nombreArticulo)) {
+//				JOptionPane.showMessageDialog(null,
+//						"El artículo está en la posicion " + modeloListaInventario.get(nombreArticulo),
+//						"Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+//			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Escribe bien el nombre", "Error E/S", JOptionPane.ERROR_MESSAGE);
 		}
-		
+
 	}
 
 	private void contarArticulos() {
-
-		// TODO: Le decimos al usuario cuántos elementos hay guardados en el
-		// inventario.
+		JOptionPane.showMessageDialog(null, "Hay " + modeloListaInventario.size() + " artículos almacenados",
+				"Tamaño del inventario", JOptionPane.INFORMATION_MESSAGE);
 
 	}
 
 	private void borrarInventario() {
-
-		// TODO: Borramos el contenido del ArrayList.
 		modeloListaInventario.clear();
+		// borra el contenido de la lista
+		listaArticulos.clear();
 
 	}
 
@@ -206,14 +213,17 @@ public class Inventario extends JFrame {
 		try {
 			FileReader archivo = new FileReader("ficheros/" + NOMBRE_ARCHIVO);
 			BufferedReader buffer = new BufferedReader(archivo);
-			
+
 			String linea = buffer.readLine();
-			
-			while(linea != null) {
-				modeloListaInventario.addElement(linea+"\n");
+
+			while (linea != null) {
 				linea = buffer.readLine();
+				modeloListaInventario.addElement(linea);
+				listaArticulos.add(linea);
 			}
-			
+
+			buffer.close();
+
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Se ha producido un error al arbir el archivo para lectura.",
 					"Error de E/S", JOptionPane.ERROR_MESSAGE);
@@ -227,11 +237,13 @@ public class Inventario extends JFrame {
 		try {
 			FileWriter archivo = new FileWriter("ficheros/" + NOMBRE_ARCHIVO);
 			BufferedWriter buffer = new BufferedWriter(archivo);
-			
-			for(String articulo : listaArticulos) {
-				buffer.write(articulo+"\n");
+
+			for (String articulo : listaArticulos) {
+				buffer.write(articulo + "\n");
 			}
-			
+
+			buffer.close();
+
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Se ha producido un error al arbir el archivo para escritura.",
 					"Error de E/S", JOptionPane.ERROR_MESSAGE);
