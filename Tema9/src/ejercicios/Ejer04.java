@@ -4,7 +4,7 @@ public class Ejer04 {
 
 	public static void main(String[] args) {
 		int num1 = 20;
-		int num2 = 5;
+		int num2 = 9;
 		
 		System.out.println(division(num1, num2));
 	}
@@ -20,6 +20,8 @@ public class Ejer04 {
 		//caso recursivo
 //		System.out.println(resultado);
 		return 1 + division(num1 - num2, num2);
+		
+		/*por algun motivo, se pone 1, no se por qué*/
 	
 	}
 	
