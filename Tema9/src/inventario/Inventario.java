@@ -151,12 +151,12 @@ public class Inventario extends JFrame {
 
 		setVisible(true);
 	}
-
+	/**
+	 * 
+	 * Permite añadir un nuevo elemento al ArrayList y al JList
+	 * 
+	 */
 	private void anyadirArticulo() {
-
-		// TODO: Preguntamos al usuario el nombre del artículo que quiere añadir
-		// y, si es un dato válido, lo añadimos al ArrayList y al JList.
-
 		String articulo = JOptionPane.showInputDialog(null, "Escribe el artículo que quieres añadir",
 				"Alta en el inventario", JOptionPane.QUESTION_MESSAGE);
 		// escribe el nombre en pantalla
@@ -165,40 +165,60 @@ public class Inventario extends JFrame {
 
 	}
 
+	/**
+	 * 
+	 * Según el artículo que esté seleccionado, se eliminará de las listas
+	 * 
+	 */
 	private void eliminarArticulo() {
-
-		// TODO: Si hay un elemento seleccionado en el JList, lo eliminamos del
-		// mismo y del ArrayList.
 		listaArticulos.remove(lstInventario.getSelectedIndex());
+		modeloListaInventario.remove(lstInventario.getSelectedIndex());
 
 	}
 
+	/**
+	 * 
+	 * Busca si un artículo se encuentra en las listas
+	 * 
+	 */
 	private void buscarArticulo() {
-
-		// TODO: Preguntamos al usuario por un artículo. Si es un dato válido,
-		// lo buscamos en el ArrayList y le indicamos la posición o bien que no
-		// se encuentra en el inventario.
 		try {
 			String nombreArticulo = JOptionPane.showInputDialog(null, "¿Qué artículo quieres buscar?",
 					"Buscar un artículo", JOptionPane.QUESTION_MESSAGE);
 
-//			if (modeloListaInventario.contains(nombreArticulo)) {
-//				JOptionPane.showMessageDialog(null,
-//						"El artículo está en la posicion " + modeloListaInventario.get(nombreArticulo),
-//						"Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
-//			}
+		if(nombreArticulo != null && !nombreArticulo.isEmpty()) {
+			int posicion = listaArticulos.indexOf(nombreArticulo);
+			if(posicion == -1) {
+				JOptionPane.showMessageDialog(null, "El artículo no se encuentra en la lista", "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+			} else{
+				JOptionPane.showMessageDialog(null, "El artículo está en la posición "+posicion, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+
+			}
+		}
+			
+			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Escribe bien el nombre", "Error E/S", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
 
+	/**
+	 * 
+	 * Cuenta cuántos artículos hay en la lista
+	 * 
+	 */
 	private void contarArticulos() {
 		JOptionPane.showMessageDialog(null, "Hay " + modeloListaInventario.size() + " artículos almacenados",
 				"Tamaño del inventario", JOptionPane.INFORMATION_MESSAGE);
 
 	}
 
+	/**
+	 * 
+	 * Borra todo el inventario
+	 * 
+	 */
 	private void borrarInventario() {
 		modeloListaInventario.clear();
 		// borra el contenido de la lista
@@ -206,10 +226,12 @@ public class Inventario extends JFrame {
 
 	}
 
+	/**
+	 * 
+	 * Se muestran todos los datos al abrir la ventana
+	 * 
+	 */
 	private void cargarInventario() {
-
-		// TODO: Leemos el contenido del archivo inventario.txt y lo vamos
-		// almacenando en el ArrayList y en el JList.
 		try {
 			FileReader archivo = new FileReader("ficheros/" + NOMBRE_ARCHIVO);
 			BufferedReader buffer = new BufferedReader(archivo);
@@ -217,9 +239,9 @@ public class Inventario extends JFrame {
 			String linea = buffer.readLine();
 
 			while (linea != null) {
-				linea = buffer.readLine();
 				modeloListaInventario.addElement(linea);
 				listaArticulos.add(linea);
+				linea = buffer.readLine();
 			}
 
 			buffer.close();
@@ -230,10 +252,12 @@ public class Inventario extends JFrame {
 		}
 	}
 
+	/**
+	 * 
+	 * Al cerrar la ventana, se guardan los datos en un archivo
+	 * 	
+	 */
 	private void guardarInventario() {
-
-		// TODO: Guardamos el contenido del ArrayList en el archivo
-		// inventario.txt.
 		try {
 			FileWriter archivo = new FileWriter("ficheros/" + NOMBRE_ARCHIVO);
 			BufferedWriter buffer = new BufferedWriter(archivo);
