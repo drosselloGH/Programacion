@@ -137,7 +137,12 @@ public class Inventario extends JFrame {
 
 			@Override
 			public void windowClosing(WindowEvent e) {
-				guardarInventario();
+				try {
+					guardarInventario();
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(null, "Se ha producido un error al arbir el archivo para escritura.",
+							"Error de E/S", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 
 			@Override
@@ -151,6 +156,7 @@ public class Inventario extends JFrame {
 
 		setVisible(true);
 	}
+
 	/**
 	 * 
 	 * Permite añadir un nuevo elemento al ArrayList y al JList
@@ -172,15 +178,15 @@ public class Inventario extends JFrame {
 	 * 
 	 */
 	private void eliminarArticulo() {
-		
+
 		int seleccion = lstInventario.getSelectedIndex();
-		
-		if(seleccion == -1) {
+
+		if (seleccion == -1) {
 			return;
 		} else {
-			//elimina el artículo del ArrayList
+			// elimina el artículo del ArrayList
 			listaArticulos.remove(seleccion);
-			//elimina el artículo de la pantalla
+			// elimina el artículo de la pantalla
 			modeloListaInventario.remove(seleccion);
 		}
 
@@ -193,25 +199,26 @@ public class Inventario extends JFrame {
 	 */
 	private void buscarArticulo() {
 		try {
-			//pide el nombre que se desea buscar
+			// pide el nombre que se desea buscar
 			String nombreArticulo = JOptionPane.showInputDialog(null, "¿Qué artículo quieres buscar?",
 					"Buscar un artículo", JOptionPane.QUESTION_MESSAGE);
 
-		//si el nombre no es nulo y no está vacío
-		if(nombreArticulo != null && !nombreArticulo.isEmpty()) {
-			//buscamos la posición del artículo
-			int posicion = listaArticulos.indexOf(nombreArticulo);
-			//si no se encuentra el artículo
-			if(posicion == -1) {
-				JOptionPane.showMessageDialog(null, "El artículo no se encuentra en la lista", "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
-			// si se encuentra
-			} else{
-				JOptionPane.showMessageDialog(null, "El artículo está en la posición "+posicion, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+			// si el nombre no es nulo y no está vacío
+			if (nombreArticulo != null && !nombreArticulo.isEmpty()) {
+				// buscamos la posición del artículo
+				int posicion = listaArticulos.indexOf(nombreArticulo);
+				// si no se encuentra el artículo
+				if (posicion == -1) {
+					JOptionPane.showMessageDialog(null, "El artículo no se encuentra en la lista",
+							"Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+					// si se encuentra
+				} else {
+					JOptionPane.showMessageDialog(null, "El artículo está en la posición " + posicion,
+							"Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
 
+				}
 			}
-		}
-			
-			
+
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Escribe bien el nombre", "Error E/S", JOptionPane.ERROR_MESSAGE);
 		}
@@ -254,7 +261,7 @@ public class Inventario extends JFrame {
 			String linea = buffer.readLine();
 
 			while (linea != null) {
-				//se añade cada elemento al ArrayList y al JList
+				// se añade cada elemento al ArrayList y al JList
 				modeloListaInventario.addElement(linea);
 				listaArticulos.add(linea);
 				linea = buffer.readLine();
@@ -271,23 +278,23 @@ public class Inventario extends JFrame {
 	/**
 	 * 
 	 * Al cerrar la ventana, se guardan los datos en un archivo
-	 * 	
+	 * 
+	 * @throws IOException
+	 * 
 	 */
-	private void guardarInventario() {
-		try {
-			FileWriter archivo = new FileWriter("ficheros/" + NOMBRE_ARCHIVO);
-			BufferedWriter buffer = new BufferedWriter(archivo);
+	private void guardarInventario() throws IOException {
 
-			for (String articulo : listaArticulos) {
-				buffer.write(articulo + "\n");
-			}
+		FileWriter archivo = new FileWriter("ficheros/" + NOMBRE_ARCHIVO);
+		BufferedWriter buffer = new BufferedWriter(archivo);
 
-			buffer.close();
-
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Se ha producido un error al arbir el archivo para escritura.",
-					"Error de E/S", JOptionPane.ERROR_MESSAGE);
+		for (String articulo : listaArticulos) {
+			buffer.write(articulo + "\n");
 		}
+
+		buffer.close();
+
+		JOptionPane.showMessageDialog(null, "Se ha producido un error al arbir el archivo para escritura.",
+				"Error de E/S", JOptionPane.ERROR_MESSAGE);
 
 	}
 
