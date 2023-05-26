@@ -13,7 +13,7 @@ public class Ejer05 {
 			return 1;
 		}
 		
-		return sumaNumeros(n-1)+n;
+		return n + sumaNumeros(n-1);
 	}
 
 }
