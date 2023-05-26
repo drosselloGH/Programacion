@@ -172,10 +172,17 @@ public class Inventario extends JFrame {
 	 * 
 	 */
 	private void eliminarArticulo() {
-		//elimina el artículo del ArrayList
-		listaArticulos.remove(lstInventario.getSelectedIndex());
-		//elimina el artículo de la pantalla
-		modeloListaInventario.remove(lstInventario.getSelectedIndex());
+		
+		int seleccion = lstInventario.getSelectedIndex();
+		
+		if(seleccion == -1) {
+			return;
+		} else {
+			//elimina el artículo del ArrayList
+			listaArticulos.remove(seleccion);
+			//elimina el artículo de la pantalla
+			modeloListaInventario.remove(seleccion);
+		}
 
 	}
 
