@@ -4,21 +4,22 @@ public class Ejer06 {
 
 	public static void main(String[] args) {
 		
-		int numeros[] = {12, 3, 7, 1, 11, 23, 5};
-		int cantidad = numeros.length -1;
+		int numeros[] = {15, 10, 17, 20, 23, 7};
+		int cantidad = numeros.length;
 		
 		System.out.println("El número más pequeño de la serie es: "+encontrarMenor(numeros, cantidad));
 		
 	}
 	
-	public static int encontrarMenor(int numeros[], int cantidad) {
+	public static int encontrarMenor(int numeros[], int longitud) {
+		//caso base
+		if(longitud == 1) {
+			return numeros[0];
+		}
+
+		//caso recursivo
+		return Math.min(encontrarMenor(numeros, longitud -1), numeros[longitud -1]);
 		
-		int posMin = numeros[0];
-		int posSig = 
-		
-		if 
-		
-		return 0;
 	}
 	
 }
