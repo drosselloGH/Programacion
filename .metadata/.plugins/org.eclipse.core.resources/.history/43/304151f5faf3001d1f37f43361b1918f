@@ -1,9 +1,0 @@
-import java.util.ArrayList;
-
-public class Listas<E> {
-
-	//ArrayList
-	/*mas rapida para operaciones que supongan recorrer la lista para leer o modificar elementos*/
-	List<E> lista = new ArrayList<>();
-	
-}
