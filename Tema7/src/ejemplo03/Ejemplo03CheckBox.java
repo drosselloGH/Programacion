@@ -10,7 +10,7 @@ public class Ejemplo03CheckBox extends JFrame {
 
 	public Ejemplo03CheckBox() {
 		super("Ejemplo con CheckBoxes");
-		setSize(150, 200);
+		setSize(140, 200);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
