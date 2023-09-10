@@ -23,7 +23,7 @@ public class Ejer8 {
 
 	}
 	
-	private static void comprobarLenguaje(String frase) {
+	public static void comprobarLenguaje(String frase) {
 		
 		String prefijo = "Javalín, javalón";
 		String sufijo = "javalén, len, len";
